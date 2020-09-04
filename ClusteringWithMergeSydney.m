@@ -1,14 +1,4 @@
-%% INSTRUCTIONS
-% take one txt file from the iCAB dataset at a time
-% change "clusterNumber" to change the number of cluster inside
-% "dataPC_clustering" file. 
-% Quantitative/Qualitative analysis can be done by observing that the 
-% prediction from the "classifierTest" is same as shown in  figure which
-% contain the voxel representation of cluster.
-
-
-
-clc
+ clc
 clear all
 close all
 
@@ -16,7 +6,6 @@ close all
 cd ('C:\Users\hafsa\OneDrive\Desktop');
 load('modelnet40PretrainNetwork.mat')
 %% upload merge data
-
 path = 'C:\Users\hafsa\OneDrive\Desktop\sydney-urban-objects-dataset\MergeData_sydney_txt_files';
 pcds = dataSydneyReadFuction(path);   % augmentation and voxelization
 dataTrain =  pcds ;
@@ -44,15 +33,14 @@ trainingFeatures = activations(voxnet, dataTrain, featureLayer, 'OutputAs', 'col
 % train classifier
 classifier = fitcecoc(trainingFeatures',traininglabels);
 
-
-%% load sabatini building data for the feature extraction
- path = 'C:\Users\hafsa\OneDrive\Desktop\TEMPORARY_pc';  % use one file at a time
-% data handling, pre-processing and conversion 
+%% load clustered txt files
+path = 'C:\Users\hafsa\OneDrive\Desktop\clusteredData\1';  % clustered in format of txt files
+% data handling and voxelization conversion 
 grid_vox = 32;
-[pcds]= dataPC_clustering(path, grid_vox);   
+pcds = dataPC_clustering(path,grid_vox); 
 testingSet = pcds;
 
-%% plot point cloud/ voxels
+%% plot voxels
 dataPreview = preview(testingSet);
 figure
 p = patch(isosurface(dataPreview,0.5));
@@ -67,5 +55,3 @@ lighting phong
 testingFeatures = activations(voxnet, testingSet, featureLayer, 'OutputAs', 'columns');
 % classify point clouds
 classifierTest = predict(classifier,testingFeatures')
-
-
