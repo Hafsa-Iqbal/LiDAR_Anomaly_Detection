@@ -1,5 +1,5 @@
 clear all
-% one fila at a time
+% one file at a time
 cd('C:\Users\hafsa\OneDrive\Desktop\Matlab Files\processed pointcloud\scenario1\manual1b_icab1\txtFiles')
 % load point cloud you want to cluster
 data = load('0010.txt');
