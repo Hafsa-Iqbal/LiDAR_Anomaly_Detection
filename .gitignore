@@ -1,3 +1,5 @@
-# Leonardo Work
+# dataset folder to ignore Work
 datasets/
+
+# Personal todo list
 TODO.txt
