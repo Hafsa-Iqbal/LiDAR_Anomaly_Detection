@@ -1,8 +1,8 @@
 %% Pre-train Network for ModelNet40
 clear all
 
-path_train = 'C:\Users\hafsa\OneDrive\Desktop\Matlab Files\train/';
-path_test = 'C:\Users\hafsa\OneDrive\Desktop\Matlab Files\test/';
+path_train = '.\datasets\train/';
+path_test = '.\datasets\test/';
 
 [pcds_train] = dataModelnet40(path_train);
 [pcds_test] = dataModelnet40(path_test);
