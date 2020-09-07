@@ -110,6 +110,7 @@ disp(accuracy)
 figure
 plotconfusion(valLabels,outputLabels)
 
+save('sydneyPreTrainedNetwrok.mat','voxnet')
 function datasetPath = downloadSydneyUrbanObjects(dataLoc)
 
 if nargin == 0
