@@ -7,8 +7,8 @@ clear all
 cd ('C:\Users\hafsa\OneDrive\Desktop');
 load('sydneyPreTrainedNetwrok.mat');
 %% load modelnet40 data
-path_train = 'C:\Users\hafsa\OneDrive\Desktop\Matlab Files\train/';
-path_test = 'C:\Users\hafsa\OneDrive\Desktop\Matlab Files\test/';
+path_train = '.\datasets\Modelnet40\train/';
+path_test = '.\datasets\Modelnet40\test/';
 
 [pcds_train] = dataModelnet40(path_train);
 [pcds_test] = dataModelnet40(path_test);
