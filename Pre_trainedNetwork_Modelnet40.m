@@ -63,7 +63,8 @@ DispatchInBackground = true;
 % Train network
 voxnet = trainNetwork(pcds_train,voxnet,options);
 
-
+% save trained network
+save('modelnet40PretrainNetwork.mat',voxnet)
 %%
 
 function [pcds]= dataModelnet40(path)
