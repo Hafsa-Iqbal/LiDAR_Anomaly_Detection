@@ -39,7 +39,8 @@ plot(voxnet);
 % Setup training options
 max_epoch = 300;
 MiniBatchSize = 128;
-ValidationFrequency = uint64(5*dsLength/miniBatchSize); 
+dsLength = length(pcds_train.Files);
+ValidationFrequency = uint64(5*dsLength/MiniBatchSize); 
 InitialLearnRate = 0.001;
 LearnRateSchedule = 'piecewise';
 LearnRateDropPeriod = 15;
