@@ -6,7 +6,8 @@ path_test = '.\datasets\test/';
 
 [pcds_train] = dataModelnet40(path_train);
 [pcds_test] = dataModelnet40(path_test);
-%% plot
+
+%% Plot
 dataPreview = preview(pcds_train);
 figure
 p = patch(isosurface(dataPreview,0.5));
@@ -17,7 +18,7 @@ view(45,45)
 camlight;
 lighting phong
 
-%% define network layers
+%% Define network layers
 numClasses = 40;
 layers = [image3dInputLayer([32 32 32],'Name','inputLayer','Normalization','none'),...
     convolution3dLayer(5,32,'Stride',2,'Name','Conv1'),...
@@ -37,6 +38,7 @@ figure
 plot(voxnet);
 
 % Setup training options
+rng(123)
 max_epoch = 300;
 MiniBatchSize = 128;
 dsLength = length(pcds_train.Files);
@@ -66,6 +68,7 @@ voxnet = trainNetwork(pcds_train,voxnet,options);
 
 % save trained network
 save('modelnet40PretrainNetwork.mat',voxnet)
+
 %%
 
 function [pcds]= dataModelnet40(path)
@@ -89,7 +92,6 @@ pcds = imageDatastore(path,...
         occupancyGrid = cellfun(@(c) ~isempty(c),indices_occupancy);
         Voxel_Data = occupancyGrid;
     end
-
 
 
 end
