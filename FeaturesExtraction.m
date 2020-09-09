@@ -9,7 +9,7 @@ load('modelnet40PretrainNetwork.mat')
 %% upload data and label for transfer learning
 if tuneNetwork == true
     pathTrain = '.\datasets\MergeSydney_data\train/';
-    pcds = dataSydneyReadFuction(pathTrain);  
+    pcds = dataSydneyReadFuction(pathTrain);   
     dataTrain =  pcds ;
     
     pathValidated = '.\datasets\MergeSydney_data\test/';
@@ -21,7 +21,7 @@ if tuneNetwork == true
     load('LabelsMergeTest.mat')
     validationlabels = categorical(class_sydneyMergeTest);
 else
-    pathTrain = '.\datasets\sydney_txt_files\train/'; 
+    pathTrain = '.\datasets\sydney_txt_files\train/';
     pcds = dataSydneyReadFuction(pathTrain);   
     dataTrain =  pcds ;
     
@@ -33,6 +33,8 @@ else
     traininglabels = categorical(class_sydneyTrain);
     load('LabelsSydneyTest.mat')
     validationlabels = categorical(class_sydneyTest);
+    
+    
     
 end
 
@@ -75,7 +77,7 @@ disp(accuracy)
 
 
 %% load icab data 
-path = '.\datasets\iCAB_data';
+path = 'C:\Users\hafsa\OneDrive\Desktop\Matlab Files\processed pointcloud\scenario1\manual1b_icab1\txtFiles';
 % data handling, pre-processing and voxelization
 grid_vox = 32;
 pcds = dataPC(path,grid_vox);

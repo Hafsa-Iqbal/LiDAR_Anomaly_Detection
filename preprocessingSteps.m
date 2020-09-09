@@ -5,7 +5,7 @@ maxLidarRange = 20;
 referenceVector = [0, 0, 1];
 maxDistance = 0.5;
 maxAngularDistance = 15;
-annularRegionLimits = [-0.75,0.75];
+annularRegionLimits = [-0.75, 0.75];
 
 
 %% Point Cloud Filtering
