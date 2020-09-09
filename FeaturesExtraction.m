@@ -1,11 +1,12 @@
- clc
+clc
 clear all
 close all
 
 %% load pre-trained modelnet40 network to extract feature
 load('modelnet40PretrainNetwork.mat')
+
 %% upload merge data
-path = '.\datasets\MergeSydney_data/';
+path = '.\datasets\MergeData_sydney_txt_files/';
 pcds = dataSydneyReadFuction(path);   % augmentation and voxelization
 dataTrain =  pcds ;
 
@@ -34,10 +35,10 @@ trainingFeatures = activations(voxnet, dataTrain, featureLayer, 'OutputAs', 'col
 classifier = fitcecoc(trainingFeatures',traininglabels);
 
 %% load clustered txt files
-path = '.\datasets\iCAB data';  
+path = '.\datasets\iCAB_data';  
 % data handling, ore-processing and voxelization 
 grid_vox = 32;
-pcds = dataPC(path,grid_vox); 
+pcds = dataPC(path, grid_vox); 
 testingSet = pcds;
 
 %% plot voxels
@@ -50,6 +51,7 @@ daspect([1 1 1])
 view(45,45)
 camlight; 
 lighting phong
+
 %%
 % feature extraction
 testingFeatures = activations(voxnet, testingSet, featureLayer, 'OutputAs', 'columns');
