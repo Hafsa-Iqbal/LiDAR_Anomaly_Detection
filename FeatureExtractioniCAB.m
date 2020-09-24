@@ -1,8 +1,9 @@
 % clc
 clear all
 close all
-tuneNetwork = true;
 
+tuneNetwork = true;
+testingFeature = true;
 % upload data and label for transfer learning
 if tuneNetwork == true
    % load pre-trained voxnet_update network after transfer learning
@@ -12,8 +13,12 @@ else
     load('modelnet40PretrainNetwork.mat')
 end
 
-% testing data to extract features
-path = '.\datasets\iCAB_data';
+if testingFeature == true
+    path = '.\datasets\iCAB_data\test';
+else
+    % testing data to extract features
+    path = '.\datasets\iCAB_data\train';
+end
 grid_vox = 32;
 % data handling, pre-processing, clustering, selection of nearest cluster and voxelization
 testingdataset = dataPC_clustering(path,grid_vox) ;
@@ -31,6 +36,12 @@ lighting phong
 
 % feature extraction
 featureLayer = 'fc1';
-trainingFeatures = activations(voxnet_update, testingdataset, featureLayer, 'OutputAs', 'columns');
+Features = activations(voxnet_update, testingdataset, featureLayer, 'OutputAs', 'columns');
 
-save('Features.mat','trainingFeatures')
+if testingFeature == true
+    testingFeatures = Features;
+    save('FeaturesTest.mat','testingFeatures')
+else
+    trainingFeatures = Features;
+    save('FeaturesTrain.mat','trainingFeatures')
+end
