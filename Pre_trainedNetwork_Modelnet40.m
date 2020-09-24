@@ -38,7 +38,7 @@ figure
 plot(voxnet);
 
 % Setup training options
-rng(123)
+rng(123) % Set a the random seed for reproducing training results
 max_epoch = 300;
 MiniBatchSize = 128;
 dsLength = length(pcds_train.Files);
