@@ -45,6 +45,7 @@ layers(end+1) = classificationLayer('Name','crossEntropyLoss');
 voxnet_update = layerGraph(layers);
 
 % training options
+rng(123) % Set the random seed for reproducing training results
 miniBatchSize = 32;
 dsLength = length(dataTrain.Files);
 iterationsPerEpoch = floor(dsLength/miniBatchSize);
