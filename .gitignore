@@ -3,3 +3,6 @@ datasets/
 
 # Personal todo list
 TODO.txt
+
+# Generated network after transfer learning
+voxnet_update.mat
