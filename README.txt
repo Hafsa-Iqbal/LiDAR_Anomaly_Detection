@@ -13,6 +13,6 @@ https://drive.google.com/drive/u/1/folders/1jTtc1648Wro-nQkFWMVm54NjkZXsk8Rk
    This process may take many hours, we have uploaded an already pretrained
    network called "modelnet40PretrainNetwork.mat" so you can skip this step
 
-3- Run "TransferLearning.m" to provide initial inofrmation of our data to the network using transfer learning
+3- Run "TransferLearning.m" to provide initial information of our data to the network using transfer learning
 
-4- Run "FeatureExtractioniCAB.m" to get the features of the testing data 
+4- Run "FeatureExtractioniCAB.m" to get the features of the testing data
