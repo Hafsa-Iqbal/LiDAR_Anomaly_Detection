@@ -66,3 +66,6 @@ display(['Minimum: ', num2str(min(MAPE))])
 display(['Maximum: ', num2str(max(MAPE))])
 display(['Mean: ', num2str(mean(MAPE))])
 display(['Median: ', num2str(median(MAPE))])
+
+% save predicted features
+save('PredictedFeatures.mat','YPred')
