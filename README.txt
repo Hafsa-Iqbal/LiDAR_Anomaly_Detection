@@ -15,4 +15,6 @@ https://drive.google.com/drive/u/1/folders/1jTtc1648Wro-nQkFWMVm54NjkZXsk8Rk
 
 3- Run "TransferLearning.m" to provide initial information of our data to the network using transfer learning
 
-4- Run "FeatureExtractioniCAB.m" to get the features of the testing data
+4- Run "FeatureExtractioniCAB.m" to get the features of the training and testing data
+
+5- Run "LSTM.m" to compute the prediction 
