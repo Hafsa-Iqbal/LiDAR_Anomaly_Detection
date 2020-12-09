@@ -18,8 +18,10 @@ name_file = name_files[model_net_40_bool]
 
 if model_net_40_bool:
     dir_test_input = 'Modelnet_40/FeaturesTest_modelnet40.mat'
+    mat_name = 'reconstruction_modelnet40_test.mat'
 else:
     dir_test_input = 'test_iCab/FeaturesTest_u2.mat'
+    mat_name = 'reconstructions_iCab_test.mat'
     # name_file = 'network_lr0.0001_mse_3D'
 
 # Load the features designed for testing
@@ -43,4 +45,4 @@ file.close()
 # Save a matlab version of the reconstructions of the test set
 if SAVE_MATLAB is True:
     reconstructions_mat = {'reconstructions': flatten_grid_test_reconstructed.tolist()}
-    m4p.savemat(name_file + '_reconstructions.mat', reconstructions_mat)
+    m4p.savemat(mat_name, reconstructions_mat)
