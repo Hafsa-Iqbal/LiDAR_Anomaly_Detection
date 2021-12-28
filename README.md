@@ -8,3 +8,17 @@ LiDAR is assumed to be an exteroceptive sensor that allows the autonomous vehicl
 
 
 
+
+### Citation
+
+If you find our work useful in your research, please cite our work:
+
+```
+@article{iqbal2021modeling,
+  title={Modeling Perception in Autonomous Vehicles via 3D Convolutional Representations on LiDAR},
+  author={Iqbal, Hafsa and Campo, Damian and Marin-Plaza, Pablo and Marcenaro, Lucio and G{\'o}mez, David Mart{\'\i}n and Regazzoni, Carlo},
+  journal={IEEE Transactions on Intelligent Transportation Systems},
+  year={2021},
+  publisher={IEEE}
+}
+```
